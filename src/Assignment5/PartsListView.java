@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 
@@ -11,8 +12,12 @@ import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JList;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.KeyStroke;
 import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
@@ -25,7 +30,7 @@ public class PartsListView extends JFrame implements PartInventoryObserver {
 	private DefaultListModel listModel;
 	private Gateway gateway;
 	private PartInventoryController invC;
-
+private JMenuItem menuItem;
 	
 	public PartsListView(PartInventoryController invC, final PartInventory partinv, Gateway otherGateway) {
 		//buttons on top (north)
@@ -34,7 +39,9 @@ public class PartsListView extends JFrame implements PartInventoryObserver {
 		this.invC = invC;
 		this.gateway = otherGateway;
 		this.setLayout(new BorderLayout());
-
+		
+	
+		//Button Panel yo
 		JPanel buttonPanel = new JPanel();
 		buttonPanel.setLayout(new GridLayout(1, 2));
 		JButton button = new JButton("Template Parts");
@@ -86,6 +93,9 @@ public class PartsListView extends JFrame implements PartInventoryObserver {
 		});
 		buttonPanel.add(button);
 
+		
+
+		
 		this.add(buttonPanel, BorderLayout.SOUTH);
 
 		listModel = new DefaultListModel();
